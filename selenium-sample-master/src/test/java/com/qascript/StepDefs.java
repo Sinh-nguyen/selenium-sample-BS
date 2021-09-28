@@ -23,6 +23,8 @@ public class StepDefs {
     public static final String username = System.getenv("BROWSERSTACK_USERNAME");
     public static final String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
     public static final String URL = "https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+    public static final String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+
 
     @Given("Launch website")
     public void launchQAScript() {
@@ -52,7 +54,7 @@ public class StepDefs {
         caps.setCapability("build", "BStack Build Xena Automation");
         caps.setCapability("browserstack.debug", "true");
         caps.setCapability("project", "Browserstack Demo");
-        caps.setCapability("name", "BStack-[Java] Demo");
+        caps.setCapability("name", buildName);
         Local bsLocal = new Local();
         HashMap<String, String> bsLocalArgs = new HashMap<String, String>();
         bsLocalArgs.put("key", "sWkwdJeqRzF4qypGSvWt");
